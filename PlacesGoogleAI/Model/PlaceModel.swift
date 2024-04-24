@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlaceModel: Codable {
+struct PlaceModel: Codable, Hashable {
     var place: String
     var activity: String
     var price: String
@@ -17,7 +17,7 @@ extension PlaceModel {
     static let dummyData: [PlaceModel] = [
         PlaceModel(
             place: "Bakso Malang",
-            activity: "Makan",
+            activity: "Eat meat ball",
             price: "30.000"
         )
     ]

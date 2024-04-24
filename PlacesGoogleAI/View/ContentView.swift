@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var placeViewModel = PlaceViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                ForEach(placeViewModel.place, id: \.self) { item in
+                    PlaceRowComponent(place: item)
+                }
+            }
+            .navigationTitle("Bandar Lampung")
+            .overlay {
+                placeViewModel.place.isEmpty ? ProgressView() : nil
+            }
+            .task {
+                await placeViewModel.getPlaces()
+            }
+            .refreshable {
+                await placeViewModel.getPlaces()
+            }
         }
-        .padding()
     }
 }
 

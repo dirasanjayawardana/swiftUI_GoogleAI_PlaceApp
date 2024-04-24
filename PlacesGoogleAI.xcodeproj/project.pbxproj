@@ -14,6 +14,8 @@
 		52D72DF82BD8B34E00D3EB88 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 52D72DF72BD8B34E00D3EB88 /* GoogleGenerativeAI */; };
 		52D72DFB2BD8B3C700D3EB88 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D72DFA2BD8B3C700D3EB88 /* Constant.swift */; };
 		52D72DFD2BD8B53E00D3EB88 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D72DFC2BD8B53E00D3EB88 /* PlaceModel.swift */; };
+		52D72E002BD8B78500D3EB88 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D72DFF2BD8B78500D3EB88 /* PlaceViewModel.swift */; };
+		52D72E022BD8BA6400D3EB88 /* PlaceRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D72E012BD8BA6400D3EB88 /* PlaceRowComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		52D72DEC2BD8B20F00D3EB88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52D72DFA2BD8B3C700D3EB88 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		52D72DFC2BD8B53E00D3EB88 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
+		52D72DFF2BD8B78500D3EB88 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
+		52D72E012BD8BA6400D3EB88 /* PlaceRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRowComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 		52D72DE42BD8B20E00D3EB88 /* PlacesGoogleAI */ = {
 			isa = PBXGroup;
 			children = (
+				52D72DFE2BD8B75500D3EB88 /* ViewModel */,
 				52D72DF92BD8B3BA00D3EB88 /* Model */,
 				52D72DF32BD8B21C00D3EB88 /* App */,
 				52D72DF42BD8B22300D3EB88 /* View */,
@@ -86,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				52D72DE72BD8B20E00D3EB88 /* ContentView.swift */,
+				52D72E012BD8BA6400D3EB88 /* PlaceRowComponent.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +111,14 @@
 				52D72DFC2BD8B53E00D3EB88 /* PlaceModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		52D72DFE2BD8B75500D3EB88 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				52D72DFF2BD8B78500D3EB88 /* PlaceViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,8 +198,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D72DE82BD8B20E00D3EB88 /* ContentView.swift in Sources */,
+				52D72E002BD8B78500D3EB88 /* PlaceViewModel.swift in Sources */,
 				52D72DFD2BD8B53E00D3EB88 /* PlaceModel.swift in Sources */,
 				52D72DE62BD8B20E00D3EB88 /* PlacesGoogleAIApp.swift in Sources */,
+				52D72E022BD8BA6400D3EB88 /* PlaceRowComponent.swift in Sources */,
 				52D72DFB2BD8B3C700D3EB88 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

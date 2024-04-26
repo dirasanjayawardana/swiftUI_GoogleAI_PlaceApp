@@ -10,16 +10,33 @@ import GoogleGenerativeAI
 
 @MainActor
 class PlaceViewModel: ObservableObject {
-    private var geminiModel: GenerativeModel
+    private var geminiModel: GenerativeModel?
     
     @Published var place: [PlaceModel] = []
     
     init() {
-        self.geminiModel = GenerativeModel(name: "gemini-pro", apiKey: Constant.apiKey)
+        // self.geminiModel = GenerativeModel(name: "gemini-pro", apiKey: Constant.apiKey)
+        configureGenerativeModel()
+    }
+    
+    func configureGenerativeModel() {
+        Task {
+            do {
+                let apiKey: String = try await RemoteConfigService.shared.fetchConfig(forKey: .apiKey)
+                geminiModel = GenerativeModel(name: "gemini-pro", apiKey: apiKey)
+            } catch {
+                print("Error configuration GenerativeModel: \(error)")
+            }
+        }
     }
     
     func getPlaces() async {
         let prompt = Constant.prompt
+        
+        guard let geminiModel = self.geminiModel else {
+            print("GenerativeModel is not configure")
+            return
+        }
         
         do {
             let response = try await geminiModel.generateContent(prompt)

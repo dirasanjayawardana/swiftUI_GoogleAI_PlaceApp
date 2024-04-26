@@ -22,12 +22,19 @@ struct ContentView: View {
             .overlay {
                 placeViewModel.place.isEmpty ? ProgressView() : nil
             }
-            .task {
-                await placeViewModel.getPlaces()
-            }
             .refreshable {
                 await placeViewModel.getPlaces()
             }
+            .onChange(of: placeViewModel.isApiKeyReady) { oldValue, newValue in
+                if newValue {
+                    Task {
+                        await placeViewModel.getPlaces()
+                    }
+                }
+            }
+//            .task {
+//                await placeViewModel.getPlaces()
+//            }
         }
     }
 }

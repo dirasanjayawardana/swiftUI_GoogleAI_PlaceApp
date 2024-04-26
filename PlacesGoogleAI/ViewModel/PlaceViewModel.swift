@@ -13,6 +13,7 @@ class PlaceViewModel: ObservableObject {
     private var geminiModel: GenerativeModel?
     
     @Published var place: [PlaceModel] = []
+    @Published var isApiKeyReady: Bool = false
     
     init() {
         // self.geminiModel = GenerativeModel(name: "gemini-pro", apiKey: Constant.apiKey)
@@ -23,7 +24,8 @@ class PlaceViewModel: ObservableObject {
         Task {
             do {
                 let apiKey: String = try await RemoteConfigService.shared.fetchConfig(forKey: .apiKey)
-                geminiModel = GenerativeModel(name: "gemini-pro", apiKey: apiKey)
+                self.geminiModel = GenerativeModel(name: "gemini-pro", apiKey: apiKey)
+                self.isApiKeyReady = true
             } catch {
                 print("Error configuration GenerativeModel: \(error)")
             }
